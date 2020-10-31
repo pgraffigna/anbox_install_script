@@ -20,13 +20,13 @@ function ctrl_c() {
 #Inicio del programa
 	echo "${yellowColour}[!!] Chequeando los pre-requisitos para instalar Anbox [!!]${endColour}"
 
-if  command -v "$PROGRAM" &>/dev/null
-then
-    echo -e "\n${greenColour} [!!] $PROGRAM está instalado [!!]${endColour}"
-else
-    echo -e "\n${redColour} [!!] $PROGRAM no esta presente...instalando [!!]${endColour}"
-    sudo apt-get update && sudo apt-get install -y "$PROGRAM"
-fi
+	if  command -v "$PROGRAM" &>/dev/null
+	then
+    	echo -e "\n${greenColour} [!!] $PROGRAM está instalado [!!]${endColour}"
+	else
+    	echo -e "\n${redColour} [!!] $PROGRAM no esta presente...instalando [!!]${endColour}"
+    	sudo apt-get update && sudo apt-get install -y "$PROGRAM"
+	fi
 
 	echo -e "\n${yellowColour}[!!] Instalando Anbox via $PROGRAM [!!]${endColour}"
 	sudo snap install --devmode --beta anbox
